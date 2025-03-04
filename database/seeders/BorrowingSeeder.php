@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\BookCopy;
 use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -14,7 +15,7 @@ class BorrowingSeeder extends Seeder
         $borrowings = [];
         
         $borrowedCopies = DB::table('book_copies')
-            ->where('status', 'borrowed')
+            ->where('status', BookCopy::STATUS_BORROWED)
             ->pluck('id')
             ->toArray();
             
@@ -30,7 +31,7 @@ class BorrowingSeeder extends Seeder
             
             if ($isReturned) {
                 $returnedAt = (clone $dueDate)->addDays(rand(-7, 10)); // بین ۷ روز زودتر تا ۱۰ روز دیرتر
-                $returnCondition = ['عالی', 'خوب', 'متوسط', 'آسیب دیده'][rand(0, 3)];
+                $returnCondition = ['Excellent', 'Good', 'Average', 'Damaged'][rand(0, 3)];
                 
                 if ($returnedAt > $dueDate) {
                     $delayDays = $returnedAt->diffInDays($dueDate);

@@ -24,6 +24,14 @@ class Borrowing extends Model
         'returned_at' => 'date',
     ];
 
+
+    public const EXCELLENT = 'Excellent';
+    public const GOOD      = 'Good';
+    public const AVERAGE   = 'Average';
+    public const DAMAGED   = 'Damaged';
+
+    
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
