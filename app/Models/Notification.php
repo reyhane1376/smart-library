@@ -21,6 +21,14 @@ class Notification extends Model
         'sent_at' => 'datetime',
     ];
 
+
+    public const DUE_DATE_REMINDER  = 'due_date_reminder';
+    public const RESERVATION_EXPIRY = 'reservation_expiry';
+    public const NEW_BOOK_AVAILABLE = 'new_book_available';
+    public const BOOK_AVAILABLE     = 'book_available';
+    public const FINE_NOTIFICATION  = 'fine_notification';
+
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

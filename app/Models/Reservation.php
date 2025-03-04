@@ -17,6 +17,11 @@ class Reservation extends Model
         'version'
     ];
 
+    public const STATUS_PENDING   = 'pending';
+    public const STATUS_ACTIVE    = 'active';
+    public const STATUS_CANCELLED = 'cancelled';
+    public const STATUS_COMPLETED = 'completed';
+
     protected $casts = [
         'reserved_at' => 'datetime',
         'expires_at' => 'datetime',

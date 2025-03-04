@@ -18,6 +18,7 @@ return new class extends Migration
             $table->enum('status', ['available', 'reserved', 'borrowed', 'under_repair']);
             $table->boolean('is_special')->default(false);
             $table->string('location')->nullable();
+            $table->integer('version')->default(0);
             $table->timestamps();
         });
     }

@@ -31,6 +31,11 @@ class User extends Authenticatable
         'is_vip' => 'boolean',
     ];
 
+
+    CONST MINIMUM_SCORE_REQUIRED = 50;
+    CONST MAXIMUM_RESERVATION_VIP_USER = 10;
+    CONST MAXIMUM_RESERVATION_USER = 5;
+
     public function reservations(): HasMany
     {
         return $this->hasMany(Reservation::class);
