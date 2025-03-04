@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\BookController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('books', BookController::class);
     Route::get('books/{book}/available-copies', [BookController::class, 'availableCopies']);
     
-    // Reservations
+    /* --------------------- Reservations ----------------------------- */
     Route::get('reservations', [ReservationController::class, 'index']);
     Route::post('reservations', [ReservationController::class, 'store']);
     Route::put('reservations/{reservation}/cancel', [ReservationController::class, 'cancel']);

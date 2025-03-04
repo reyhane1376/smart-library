@@ -15,10 +15,21 @@ class BookCopy extends Model
         'location'
     ];
 
+
+    /* --------------------- CONDITION CONST ----------------------------- */
+
     const CONDITION_EXCELLENT    = 'عالی';
     const CONDITION_GOOD         = 'خوب';
     const CONDITION_AVERAGE      = 'متوسط';
     const CONDITION_NEEDS_REPAIR = 'نیاز به تعمیر';
+
+
+    /* --------------------- STATUS CONST ----------------------------- */
+
+    const STATUS_AVAILABLE    = 'available';
+    const STATUS_RESERVED     = 'reserved';
+    const STATUS_BORROWED     = 'borrowed';
+    const STATUS_UNDER_REPAIR = 'under_repair';
 
 
     /* --------------------- Relation ----------------------------- */
