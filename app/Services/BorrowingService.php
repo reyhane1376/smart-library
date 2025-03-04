@@ -176,7 +176,7 @@ class BorrowingService implements BorrowingServiceInterface
     public function extendBorrowingPeriod(Borrowing $borrowing, $days)
     {
         if ($borrowing->returned_at) {
-            throw new \Exception('Cannot extend period for returned books');
+            throw new \Exception('نمیتوانید کتابی که برگشت داده شده است را تمدید کنید.');
         }
         
         // Check if user is eligible for extension
@@ -184,16 +184,16 @@ class BorrowingService implements BorrowingServiceInterface
         $eligibility = $this->scoreService->getUserEligibility($user);
         
         if ($eligibility < 70) { // Require good standing for extensions
-            throw new \Exception('User is not eligible for borrowing extension');
+            throw new \Exception('متاسفانه این امکان برای کاربر مورد نظر وجود ندارد.');
         }
         
         // Check if book has pending reservations
         $hasPendingReservations = Reservation::where('book_copy_id', $borrowing->book_copy_id)
-            ->where('status', 'pending')
+            ->where('status', Reservation::STATUS_PENDING)
             ->exists();
             
         if ($hasPendingReservations) {
-            throw new \Exception('Cannot extend borrowing period when others are waiting');
+            throw new \Exception('کتاب مورد نظر در لیست رزرو است و متاسفانه نمیتوانید کتاب را تایید کنید.');
         }
         
         // Update due date
@@ -205,8 +205,8 @@ class BorrowingService implements BorrowingServiceInterface
         
         // Store event
         $this->eventStore->storeEvent(
-            'borrowing_extended',
-            'borrowing',
+            Event::EVENT_TYPE_BORROWING_EXTENDED,
+            Event::AGGREGATE_TYPE_BORROWING,
             $borrowing->id,
             [
                 'previous_due_date' => Carbon::parse($borrowing->due_date)->subDays($extendDays)->toDateString(),

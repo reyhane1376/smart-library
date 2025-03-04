@@ -26,6 +26,7 @@ class Event extends Model
     const EVENT_TYPE_RESERVATION_CREATED   = 'reservation_created';
     const EVENT_TYPE_RESERVATION_CANCELLED = 'reservation_cancelled';
     const EVENT_TYPE_RESERVATION_ACTIVATED = 'reservation_activated';
+    const EVENT_TYPE_BORROWING_EXTENDED    = 'borrowing_extended';
 
 
     const AGGREGATE_TYPE_BOOK        = 'book';
