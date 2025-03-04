@@ -15,6 +15,14 @@ class BookCopy extends Model
         'location'
     ];
 
+    const CONDITION_EXCELLENT    = 'عالی';
+    const CONDITION_GOOD         = 'خوب';
+    const CONDITION_AVERAGE      = 'متوسط';
+    const CONDITION_NEEDS_REPAIR = 'نیاز به تعمیر';
+
+
+    /* --------------------- Relation ----------------------------- */
+
     public function book(): BelongsTo
     {
         return $this->belongsTo(Book::class);
