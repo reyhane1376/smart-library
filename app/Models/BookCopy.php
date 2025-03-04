@@ -12,6 +12,7 @@ class BookCopy extends Model
         'book_id', 
         'physical_condition', 
         'status', 
+        'is_special',
         'location'
     ];
 

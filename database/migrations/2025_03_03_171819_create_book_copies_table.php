@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('book_id')->constrained()->onDelete('cascade');
             $table->string('physical_condition');
             $table->enum('status', ['available', 'reserved', 'borrowed', 'under_repair']);
+            $table->boolean('is_special')->default(false);
             $table->string('location')->nullable();
             $table->timestamps();
         });
