@@ -35,6 +35,9 @@ class User extends Authenticatable
     CONST MINIMUM_SCORE_REQUIRED = 50;
     CONST MAXIMUM_RESERVATION_VIP_USER = 10;
     CONST MAXIMUM_RESERVATION_USER = 5;
+    CONST BORROW_PERIOD_VIP_USER = 30;
+    CONST BORROW_PERIOD_USER = 14;
+    CONST FINE_FOR_ONE_DAY = 1000;
 
     public function reservations(): HasMany
     {
