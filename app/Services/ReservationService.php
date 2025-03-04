@@ -158,7 +158,7 @@ class ReservationService implements ReservationServiceInterface
             now()->addMinutes(10),
             function () use ($copy) {
                 return Reservation::where('book_copy_id', $copy->id)
-                    ->where('status', 'pending')
+                    ->where('status', Reservation::STATUS_PENDING)
                     ->orderBy('queue_position')
                     ->with('user')
                     ->get();
@@ -175,10 +175,24 @@ class ReservationService implements ReservationServiceInterface
 
         if ($nextReservation) {
             // Add to queue for async processing
-            $this->queueService->addToQueue('notify_user', [
-                'user_id' => $nextReservation->user_id,
-                'notification_type' => 'book_available',
-                'message' => "The book you reserved is now available: {$copy->book->title}"
+
+            $userId = $nextReservation->user_id;
+            $type = 'book_available';
+            $message = "The book you reserved is now available: {$copy->book->title}";
+
+            Notification::create([
+                'user_id'     => $userId,
+                'type'        => $type,
+                'message'     => $message,
+                'is_read'     => false,
+                'retry_count' => 0,
+                'sent_at'     => null
+            ]);
+            
+            $this->queueService->addToQueue('send_notification', [
+                'user_id'           => $userId,
+                'notification_type' => $type,
+                'message'           => $message
             ]);
 
             return true;
