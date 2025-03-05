@@ -1,0 +1,950 @@
+{
+	"info": {
+		"_postman_id": "16836786-7f1c-4d23-9053-f477e7746045",
+		"name": "smart_book",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20515400",
+		"_collection_link": "https://interstellar-comet-234219.postman.co/workspace/0da898f6-998b-4596-8363-cf7d0ac7df05/collection/20515400-16836786-7f1c-4d23-9053-f477e7746045?action=share&source=collection_link&creator=20515400"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "reyhaneebrahimi37@yahoo.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "test",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{smartUrl}}/api/v1/login",
+							"host": [
+								"{{smartUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|zfM119ldBqbrAzVkF7qt3hH0FsgYPnld4Z5tQE568b9552e1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "reyhaneebrahimi24@yahoo.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "test",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{smartUrl}}/api/v1/logout",
+							"host": [
+								"{{smartUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "reyhaneebrahimi37@yahoo.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "tesrt",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{smartUrl}}/api/v1/register",
+							"host": [
+								"{{smartUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "book",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|ap62tSxCJLWmPn7MP8Gx1cl3kGLFInYNLK7Cm9jW2fadc9cd",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{smartUrl}}/api/v1/books",
+							"host": [
+								"{{smartUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|ap62tSxCJLWmPn7MP8Gx1cl3kGLFInYNLK7Cm9jW2fadc9cd",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{smartUrl}}/api/v1/books/2",
+							"host": [
+								"{{smartUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|ap62tSxCJLWmPn7MP8Gx1cl3kGLFInYNLK7Cm9jW2fadc9cd",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "ریحانه",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{smartUrl}}/api/v1/books",
+							"host": [
+								"{{smartUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|ap62tSxCJLWmPn7MP8Gx1cl3kGLFInYNLK7Cm9jW2fadc9cd",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "test2",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "ریحانه",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{smartUrl}}/api/v1/books/2?title=testtt&author=fldkklfjsd",
+							"host": [
+								"{{smartUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"2"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "testtt"
+								},
+								{
+									"key": "author",
+									"value": "fldkklfjsd"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "destroy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|ap62tSxCJLWmPn7MP8Gx1cl3kGLFInYNLK7Cm9jW2fadc9cd",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "ریحانه",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{smartUrl}}/api/v1/books/2",
+							"host": [
+								"{{smartUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "availableCopies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|ap62tSxCJLWmPn7MP8Gx1cl3kGLFInYNLK7Cm9jW2fadc9cd",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{smartUrl}}/api/v1/books/3/available-copies",
+							"host": [
+								"{{smartUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"3",
+								"available-copies"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "reservation",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|ap62tSxCJLWmPn7MP8Gx1cl3kGLFInYNLK7Cm9jW2fadc9cd",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{smartUrl}}/api/v1/reservations",
+							"host": [
+								"{{smartUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reservations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "6|OXdeefNgiYIBZDr4GX9ll2wdZkkjrYCwTGtQcJkW8d692d63",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "book_copy_id",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{smartUrl}}/api/v1/reservations",
+							"host": [
+								"{{smartUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reservations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cancel",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "6|OXdeefNgiYIBZDr4GX9ll2wdZkkjrYCwTGtQcJkW8d692d63",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "book_copy_id",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{smartUrl}}/api/v1/reservations/10/cancel",
+							"host": [
+								"{{smartUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reservations",
+								"10",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "queue",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "6|OXdeefNgiYIBZDr4GX9ll2wdZkkjrYCwTGtQcJkW8d692d63",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "book_copy_id",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{smartUrl}}/api/v1/copies/10/reservation-queue",
+							"host": [
+								"{{smartUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"copies",
+								"10",
+								"reservation-queue"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "borrowings",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "6|OXdeefNgiYIBZDr4GX9ll2wdZkkjrYCwTGtQcJkW8d692d63",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{smartUrl}}/api/v1/borrowings",
+							"host": [
+								"{{smartUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"borrowings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "6|OXdeefNgiYIBZDr4GX9ll2wdZkkjrYCwTGtQcJkW8d692d63",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "book_copy_id",
+									"value": "10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{smartUrl}}/api/v1/borrowings",
+							"host": [
+								"{{smartUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"borrowings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "return",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "6|OXdeefNgiYIBZDr4GX9ll2wdZkkjrYCwTGtQcJkW8d692d63",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "book_copy_id",
+									"value": "10",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{smartUrl}}/api/v1/borrowings/4/return",
+							"host": [
+								"{{smartUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"borrowings",
+								"4",
+								"return"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "book copy replacement",
+			"item": [
+				{
+					"name": "replace damaged",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|2dRyfOxRz8CZB0i4ePiV6rwRLVWDaylqpGkqJJyn9f7cabf6",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "damaged_copy_id",
+									"value": "7",
+									"type": "text"
+								},
+								{
+									"key": "new_copy_details",
+									"value": "8",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{smartUrl}}/api/v1/book-copies/replace-damaged",
+							"host": [
+								"{{smartUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"book-copies",
+								"replace-damaged"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "book copy transfer",
+			"item": [
+				{
+					"name": "transferBetweenBranches",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|2dRyfOxRz8CZB0i4ePiV6rwRLVWDaylqpGkqJJyn9f7cabf6",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "book_copy_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "from_branch_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "to_branch_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{smartUrl}}/api/v1/book-copies/transfer-between-branches",
+							"host": [
+								"{{smartUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"book-copies",
+								"transfer-between-branches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "confirmTransfer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|2dRyfOxRz8CZB0i4ePiV6rwRLVWDaylqpGkqJJyn9f7cabf6",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "branch_id",
+									"value": "2",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "branch_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "book_copy_id",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{smartUrl}}/api/v1/book-copy-transfers/1/confirm?branch_id=2&book_copy_id=2",
+							"host": [
+								"{{smartUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"book-copy-transfers",
+								"1",
+								"confirm"
+							],
+							"query": [
+								{
+									"key": "branch_id",
+									"value": "2"
+								},
+								{
+									"key": "book_copy_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "smartUrl",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
