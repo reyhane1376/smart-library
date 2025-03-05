@@ -20,10 +20,20 @@ class BookCopy extends Model
 
     /* --------------------- CONDITION CONST ----------------------------- */
 
-    const CONDITION_EXCELLENT    = 'عالی';
-    const CONDITION_GOOD         = 'خوب';
-    const CONDITION_AVERAGE      = 'متوسط';
-    const CONDITION_NEEDS_REPAIR = 'نیاز به تعمیر';
+    const CONDITION_EXCELLENT    = 1;
+    const CONDITION_GOOD         = 2;
+    const CONDITION_AVERAGE      = 3;
+    const CONDITION_NEEDS_REPAIR = 4;
+
+    
+
+
+    CONST CONDITION_TITLE = [
+        self::CONDITION_EXCELLENT    => 'عالی',
+        self::CONDITION_GOOD         => 'خوب',
+        self::CONDITION_AVERAGE      => 'متوسط',
+        self::CONDITION_NEEDS_REPAIR => 'نیاز به تعمیر',
+    ];
 
 
     /* --------------------- STATUS CONST ----------------------------- */
@@ -32,6 +42,7 @@ class BookCopy extends Model
     const STATUS_RESERVED     = 'reserved';
     const STATUS_BORROWED     = 'borrowed';
     const STATUS_UNDER_REPAIR = 'under_repair';
+    const STATUS_DAMAGE       = 'damage';
 
 
     /* --------------------- Relation ----------------------------- */
