@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('book_copies', function (Blueprint $table) {
             $table->id();
             $table->foreignId('book_id')->constrained()->onDelete('cascade');
-            $table->string('physical_condition');
-            $table->enum('status', ['available', 'reserved', 'borrowed', 'under_repair']);
+            $table->integer('physical_condition');
+            $table->string('status');
             $table->boolean('is_special')->default(false);
             $table->string('location')->nullable();
             $table->integer('version')->default(0);
