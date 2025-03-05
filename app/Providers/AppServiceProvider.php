@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Interfaces\BookCopyReplacementRepositoryInterface;
 use App\Interfaces\BookCopyRepositoryInterface;
 use App\Interfaces\BookRepositoryInterface;
 use App\Interfaces\BorrowingServiceInterface;
@@ -15,6 +16,7 @@ use App\Models\Borrowing;
 use App\Models\Reservation;
 use App\Policies\BorrowingPolicy;
 use App\Policies\ReservationPolicy;
+use App\Repositories\BookCopyReplacementRepository;
 use App\Repositories\BookRepository;
 use App\Repositories\BranchBookTransferRepository;
 use App\Services\BorrowingService;
@@ -42,6 +44,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(EventStoreInterface::class, EventStore::class);
         $this->app->bind(QueueServiceInterface::class, QueueService::class);
         $this->app->bind(BranchBookTransferRepositoryInterface::class, BranchBookTransferRepository::class);
+        $this->app->bind(BookCopyReplacementRepositoryInterface::class, BookCopyReplacementRepository::class);
 
 
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\BookCopyReplacementRepositoryInterface;
 use App\Models\BookCopy;
 use App\Models\Borrowing;
 use App\Models\CopyRepairHistory;
@@ -11,6 +12,13 @@ use Illuminate\Support\Facades\DB;
 
 class BookCopyReplacementController extends Controller
 {
+    protected $bookCopyReplacementRepository;
+
+    public function __construct(BookCopyReplacementRepositoryInterface $bookCopyReplacementRepository)
+    {
+        $this->bookCopyReplacementRepository = $bookCopyReplacementRepository;
+    }
+
     public function replacedamages(Request $request)
     {
         $request->validate([
@@ -18,38 +26,22 @@ class BookCopyReplacementController extends Controller
             'damage_description' => 'nullable|string'
         ]);
 
-        $borrowing = Borrowing::where('book_copy_id', $request->damaged_copy_id)
-        ->whereNull('returned_at')->first();
-
-
-        if ($borrowing)
-        {
-            throw new \Exception('کتاب مورد نظر امانت است.');
-        }
-
-        return DB::transaction(function () use ($request) {
-            $damagedCopy = BookCopy::findOrFail($request->damaged_copy_id);
-
-            $newCopy = BookCopy::create([
-                'book_id'            => $damagedCopy->book_id,
-                'physical_condition' => BookCopy::CONDITION_EXCELLENT,
-                'status'             => BookCopy::STATUS_AVAILABLE,
-                'is_special'         => $damagedCopy->is_special,
-                'version'            => $damagedCopy->version,
-                'location'           => $damagedCopy->location
-            ]);
-
-            $damagedCopy->update([
-                'status'             => BookCopy::STATUS_DAMAGE,
-                'physical_condition' => BookCopy::CONDITION_NEEDS_REPAIR
-            ]);
+        try {
+            $result = $this->bookCopyReplacementRepository->replaceDamagedCopy(
+                $request->damaged_copy_id, 
+                $request->damage_description
+            );
 
             return response()->json([
-                'damaged_copy' => $damagedCopy,
-                'new_copy' => $newCopy,
-                'message' => 'جایگزینی با موفقیت انجام شد.'
+                'damaged_copy' => $result['damaged_copy'],
+                'new_copy'     => $result['new_copy'],
+                'message'      => 'جایگزینی با موفقیت انجام شد.'
             ]);
-        });
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => $e->getMessage()
+            ], 422);
+        }
     }
 
 
