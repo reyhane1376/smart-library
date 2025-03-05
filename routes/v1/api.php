@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\BookCopyReplacementController;
 use App\Http\Controllers\BorrowingController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ScoreController;
@@ -22,6 +23,14 @@ Route::middleware('api')->group(function () {
         /* --------------------- BOOKS ----------------------------- */
         Route::apiResource('books', BookController::class);
         Route::get('books/{book}/available-copies', [BookController::class, 'availableCopies']);
+
+        /* ---------------------  ----------------------------- */
+        // Route::post('book-copies/replace', [BookCopyReplacementController::class, 'replaceBookCopy']);
+        // Route::put('book-copy-transfers/{transfer}/confirm', [BookCopyReplacementController::class, 'confirmTransfer']);
+
+        /* --------------------- Book Copy Replacement ----------------------------- */
+        Route::post('book-copies/replace-damaged', [BookCopyReplacementController::class, 'replacedamages']);
+
         
         /* --------------------- Reservations ----------------------------- */
         Route::get('reservations', [ReservationController::class, 'index']);
