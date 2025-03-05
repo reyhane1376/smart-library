@@ -1,4 +1,4 @@
-# Book Reservation System
+# Book Reservation System (smart library)
 
 A sophisticated book reservation system with advanced features for library management, built with Laravel.
 
@@ -60,7 +60,7 @@ A sophisticated book reservation system with advanced features for library manag
 ### Prerequisites
 - PHP >= 8.1
 - Composer
-- MySQL/PostgreSQL
+- MySQL
 - Redis (for queue and cache)
 
 ### Installation Steps
