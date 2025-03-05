@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use Database\Factories\BookCopyFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class BookCopy extends Model
 {
+    use HasFactory;
     protected $fillable = [
         'book_id', 
         'physical_condition', 
@@ -72,5 +75,10 @@ class BookCopy extends Model
     public function transfers(): HasMany
     {
         return $this->hasMany(BookCopyTransfer::class);
+    }
+
+    protected static function newFactory()
+    {
+        return BookCopyFactory::new();
     }
 }
