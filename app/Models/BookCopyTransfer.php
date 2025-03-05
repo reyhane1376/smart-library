@@ -14,6 +14,10 @@ class BookCopyTransfer extends Model
         'status'
     ];
 
+    const STATUS_REQUESTED  = 'requested';
+    const STATUS_IN_TRANSIT = 'in_transit';
+    const STATUS_COMPLETED  = 'completed'; 
+
     public function bookCopy(): BelongsTo
     {
         return $this->belongsTo(BookCopy::class);

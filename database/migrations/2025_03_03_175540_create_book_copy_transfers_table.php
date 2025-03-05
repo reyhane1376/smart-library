@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('book_copy_id')->constrained()->onDelete('cascade');
             $table->foreignId('from_branch_id')->constrained('branches')->onDelete('cascade');
             $table->foreignId('to_branch_id')->constrained('branches')->onDelete('cascade');
-            $table->enum('status', ['requested', 'in_transit', 'completed']);
+            $table->string('status');
             $table->timestamps();
         });
     }

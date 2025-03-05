@@ -13,6 +13,7 @@ class BookCopy extends Model
         'physical_condition', 
         'status', 
         'is_special',
+        'branch_id',
         'version',
         'location'
     ];
@@ -43,6 +44,7 @@ class BookCopy extends Model
     const STATUS_BORROWED     = 'borrowed';
     const STATUS_UNDER_REPAIR = 'under_repair';
     const STATUS_DAMAGE       = 'damage';
+    const STATUS_IN_TRANSFER = 'in_transfer';
 
 
     /* --------------------- Relation ----------------------------- */

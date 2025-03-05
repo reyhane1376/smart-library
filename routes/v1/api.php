@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\BookCopyReplacementController;
 use App\Http\Controllers\BorrowingController;
+use App\Http\Controllers\BranchBookTransferController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ScoreController;
 use Illuminate\Http\Request;
@@ -24,9 +25,9 @@ Route::middleware('api')->group(function () {
         Route::apiResource('books', BookController::class);
         Route::get('books/{book}/available-copies', [BookController::class, 'availableCopies']);
 
-        /* ---------------------  ----------------------------- */
-        // Route::post('book-copies/replace', [BookCopyReplacementController::class, 'replaceBookCopy']);
-        // Route::put('book-copy-transfers/{transfer}/confirm', [BookCopyReplacementController::class, 'confirmTransfer']);
+        /* --------------------- Book Branch Transfer ----------------------------- */
+        Route::post('book-copies/transfer-between-branches', [BranchBookTransferController::class, 'transferBetweenBranches']);
+        Route::put('book-copy-transfers/{transfer}/confirm', [BranchBookTransferController::class, 'confirmTransfer']);
 
         /* --------------------- Book Copy Replacement ----------------------------- */
         Route::post('book-copies/replace-damaged', [BookCopyReplacementController::class, 'replacedamages']);

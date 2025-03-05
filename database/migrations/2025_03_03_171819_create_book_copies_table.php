@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('status');
             $table->boolean('is_special')->default(false);
             $table->string('location')->nullable();
+            $table->foreignId('branch_id')->constrained('branches');
             $table->integer('version')->default(0);
             $table->timestamps();
         });
