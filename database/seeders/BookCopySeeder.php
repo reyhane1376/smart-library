@@ -22,7 +22,7 @@ class BookCopySeeder extends Seeder
                     'physical_condition' => $conditions[array_rand($conditions)],
                     'status'             => $statuses[array_rand($statuses)],
                     'location'           => rand(1, 3),   
-                    'branch_id'          => rand(1, 3),                        // شعبه‌های ۱ تا ۳
+                    'branch_id'          => rand(1, 3),                      // شعبه‌های ۱ تا ۳
                     'created_at'         => now(),
                     'updated_at'         => now(),
                 ];

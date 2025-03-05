@@ -63,6 +63,11 @@ class BranchBookTransferController extends Controller
     
     public function confirmTransfer(Request $request, BookCopyTransfer $transfer)
     {
+        $request->validate([
+            'branch_id'    => 'required|exists:branches,id',
+            'book_copy_id' => 'required|exists:book_copies,id',
+        ]);
+
         $borrowing = Borrowing::where('book_copy_id', $request->book_copy_id)
         ->whereNull('returned_at')->first();
 
