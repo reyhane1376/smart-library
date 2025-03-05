@@ -19,4 +19,4 @@ A sophisticated book reservation system with advanced features for library manag
 A Postman collection is available for testing the system's APIs.  
 You can download it using the link below:
 
-[Download Postman Collection](https://raw.githubusercontent.com/reyhane1376/smart-library/refs/heads/main/postman/smart_book.postman_collection.json?token=GHSAT0AAAAAAC4LE5ZEKDFEE3P6GDWKFEIGZ6IJUCA)
+[Download Postman Collection](https://raw.githubusercontent.com/reyhane1376/smart-library/refs/heads/main/postman/smart_book.postman_collection.json)
