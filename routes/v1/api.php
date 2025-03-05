@@ -35,8 +35,5 @@ Route::middleware('api')->group(function () {
         Route::put('borrowings/{borrowing}/return', [BorrowingController::class, 'return']);
         Route::put('borrowings/{borrowing}/extend', [BorrowingController::class, 'extend']);
 
-
-        /* --------------------- Score ----------------------------- */
-        Route::get('calculate-score', [ScoreController::class, 'calculate']);
     });
 });
