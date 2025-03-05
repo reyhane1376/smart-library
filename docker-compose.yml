@@ -19,7 +19,7 @@ services:
       - app-network
 
   webserver:
-    image: docker.arvancloud.ir/nginx
+    image: nginx
     container_name: nginx-webserver
     restart: always
     ports:
@@ -36,7 +36,7 @@ services:
       retries: 3
 
   db:
-    image: docker.arvancloud.ir/mariadb:10
+    image: mariadb:10
     container_name: mariadb
     restart: unless-stopped
     environment:
@@ -52,7 +52,7 @@ services:
       - app-network
 
   redis:
-    image: docker.arvancloud.ir/redis:alpine
+    image: redis:alpine
     container_name: redis
     restart: unless-stopped
     ports:
@@ -61,7 +61,7 @@ services:
       - app-network
 
   phpmyadmin:
-    image: docker.arvancloud.ir/phpmyadmin/phpmyadmin:latest
+    image: phpmyadmin/phpmyadmin:latest
     container_name: phpmyadmin
     restart: unless-stopped
     environment:
